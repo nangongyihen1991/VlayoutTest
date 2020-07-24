@@ -12,7 +12,7 @@ import com.example.vlayouttest.R
 import com.example.vlayouttest.view.bean.VLayoutBean
 
 class FloatAdapter(context: Context) :
-    BaseVlayoutAdapter<FloatAdapter.MyViewHolder, VLayoutBean>(
+    BaseVLayoutAdapter<FloatAdapter.MyViewHolder, VLayoutBean>(
         context,
         R.layout.item_linear_view
     ) {

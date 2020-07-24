@@ -11,7 +11,7 @@ import com.example.vlayouttest.R
 import com.example.vlayouttest.view.bean.VLayoutBean
 
 class StickyAdapter(context: Context) :
-    BaseVlayoutAdapter<StickyAdapter.MyViewHolder, VLayoutBean>(
+    BaseVLayoutAdapter<StickyAdapter.MyViewHolder, VLayoutBean>(
         context,
         R.layout.item_linear_view
     ) {

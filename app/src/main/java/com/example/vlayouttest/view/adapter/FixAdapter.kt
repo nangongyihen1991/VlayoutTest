@@ -11,7 +11,7 @@ import com.example.vlayouttest.R
 import com.example.vlayouttest.view.bean.VLayoutBean
 
 class FixAdapter(context: Context) :
-    BaseVlayoutAdapter<FixAdapter.MyViewHolder, VLayoutBean>(
+    BaseVLayoutAdapter<FixAdapter.MyViewHolder, VLayoutBean>(
         context,
         R.layout.item_linear_view
     ) {

@@ -1,19 +1,16 @@
 package com.example.vlayouttest.view.adapter
 
 import android.content.Context
-import android.graphics.Color
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.ColorUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.vlayout.layout.GridLayoutHelper
 import com.example.vlayouttest.R
 import com.example.vlayouttest.view.bean.VLayoutBean
 
 class GridAdapter(context: Context) :
-    BaseVlayoutAdapter<GridAdapter.MyViewHolder, VLayoutBean>(
+    BaseVLayoutAdapter<GridAdapter.MyViewHolder, VLayoutBean>(
         context,
         R.layout.item_linear_view
     ) {

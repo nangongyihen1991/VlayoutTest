@@ -10,7 +10,7 @@ import com.example.vlayouttest.R
 import com.example.vlayouttest.view.bean.VLayoutBean
 
 class LinearAdapter(context: Context) :
-    BaseVlayoutAdapter<LinearAdapter.MyViewHolder, VLayoutBean>(
+    BaseVLayoutAdapter<LinearAdapter.MyViewHolder, VLayoutBean>(
         context,
         R.layout.item_linear_view
     ) {

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.vlayout.DelegateAdapter
 
-abstract class BaseVlayoutAdapter<VH : RecyclerView.ViewHolder, T>(
+abstract class BaseVLayoutAdapter<VH : RecyclerView.ViewHolder, T>(
     private val context: Context,
     private val layoutRes: Int
 ) : DelegateAdapter.Adapter<VH>() {
@@ -33,13 +33,19 @@ abstract class BaseVlayoutAdapter<VH : RecyclerView.ViewHolder, T>(
         notifyDataSetChanged()
     }
 
+    fun addData(data: T) {
+        val index = mData.size
+        mData.add(data)
+        notifyItemRangeChanged(index, 1)
+    }
+
     fun addData(data: List<T>) {
         if (data.isNullOrEmpty()) return
         val index = mData.size
         addIndexData(index, data)
     }
 
-    fun addIndexData(index: Int, data: List<T>) {
+    private fun addIndexData(index: Int, data: List<T>) {
         if (data.isNullOrEmpty()) return
         mData.addAll(data)
         notifyItemRangeChanged(index, data.size)

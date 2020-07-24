@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.vlayout.DelegateAdapter
 import com.alibaba.android.vlayout.VirtualLayoutManager
+import com.example.vlayouttest.manager.Constants
 import com.example.vlayouttest.view.adapter.*
+import com.example.vlayouttest.view.bean.CardBean
 import com.example.vlayouttest.view.bean.VLayoutBean
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -14,12 +16,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initView()
-        mAdatper?.addAdapter(getLinearAdapter())
-        mAdatper?.addAdapter(0, getGridAdapter())
-        mAdatper?.addAdapter(getStickyAdapter())
-        mAdatper?.addAdapter(getLinearAdapter())
-        mAdatper?.addAdapter(getFloatAdapter())
-        mAdatper?.addAdapter(getFixAdapter())
+//        mAdatper?.addAdapter(getLinearAdapter())
+//        mAdatper?.addAdapter(getGridAdapter())
+//        mAdatper?.addAdapter(getStickyAdapter())
+//        mAdatper?.addAdapter(getLinearAdapter())
+//        mAdatper?.addAdapter(getFloatAdapter())
+//        mAdatper?.addAdapter(getFixAdapter())
+        updateView()
     }
 
     private fun initView() {
@@ -27,6 +30,18 @@ class MainActivity : AppCompatActivity() {
         mRv.layoutManager = layoutManager
         mAdatper = DelegateAdapter(layoutManager, true)
         mRv.adapter = mAdatper
+    }
+
+    private fun updateView() {
+        val data = ArrayList<CardBean>()
+        val cardBean = CardBean()
+        cardBean.type = Constants.TYPE_LINEAR
+        cardBean.data = ArrayList<String>().also {
+            for (i in 0..10) {
+                it.add("cardBean $i")
+            }
+        }
+        data.add(cardBean)
     }
 
     private fun getLinearAdapter(): LinearAdapter {
