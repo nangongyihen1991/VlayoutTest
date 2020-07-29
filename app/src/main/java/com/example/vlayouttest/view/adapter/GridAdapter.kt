@@ -7,13 +7,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.vlayout.layout.GridLayoutHelper
 import com.example.vlayouttest.R
-import com.example.vlayouttest.view.bean.VLayoutBean
+import com.example.vlayouttest.manager.Constants
+import com.example.vlayouttest.view.bean.TestBean
 
 class GridAdapter(context: Context) :
-    BaseVLayoutAdapter<GridAdapter.MyViewHolder, VLayoutBean>(
+    BaseCommonVLayoutAdapter<GridAdapter.MyViewHolder, TestBean>(
         context,
-        R.layout.item_linear_view
+        R.layout.item_view
     ) {
+    override fun getItemViewType(position: Int): Int {
+        return Constants.TYPE_GRID
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = getItemView(parent)
         return MyViewHolder(itemView)
@@ -21,7 +26,7 @@ class GridAdapter(context: Context) :
 
     override fun onCreateLayoutHelper() = GridLayoutHelper(3, itemCount)
 
-    override fun onBindViewHolder(holder: MyViewHolder, t: VLayoutBean, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, t: TestBean, position: Int) {
         holder.mTv.text = t.text
     }
 

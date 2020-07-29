@@ -9,13 +9,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.vlayout.layout.FixLayoutHelper
 import com.alibaba.android.vlayout.layout.FloatLayoutHelper
 import com.example.vlayouttest.R
-import com.example.vlayouttest.view.bean.VLayoutBean
+import com.example.vlayouttest.manager.Constants
 
 class FloatAdapter(context: Context) :
-    BaseVLayoutAdapter<FloatAdapter.MyViewHolder, VLayoutBean>(
+    BaseCommonVLayoutAdapter<FloatAdapter.MyViewHolder, Unit>(
         context,
-        R.layout.item_linear_view
+        R.layout.item_view
     ) {
+
+    override fun getItemViewType(position: Int): Int {
+        return Constants.TYPE_FLOAT
+    }
+
+    override fun getItemCount() = 1
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val item = getItemView(parent)
         item.layoutParams = item.layoutParams.also {
@@ -31,8 +38,8 @@ class FloatAdapter(context: Context) :
         it.setDefaultLocation(20, 20)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, t: VLayoutBean, position: Int) {
-        holder.mTv.text = t.text
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.mTv.text = ("FloatAdapter-> ${getAdapterData()?.type}")
     }
 
 

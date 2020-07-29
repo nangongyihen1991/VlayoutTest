@@ -16,10 +16,14 @@ abstract class BaseVLayoutAdapter<VH : RecyclerView.ViewHolder, T>(
     override fun getItemCount() = mData.size
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        onBindViewHolder(holder, mData[position], position)
+        if (mData.size > position) {
+            onBindViewHolder(holder, mData[position], position)
+        }
     }
 
-    abstract fun onBindViewHolder(holder: VH, t: T, position: Int)
+    open fun onBindViewHolder(holder: VH, t: T, position: Int) {
+
+    }
 
     protected fun getItemView(parent: ViewGroup): View {
         return LayoutInflater.from(context).inflate(layoutRes, parent, false)

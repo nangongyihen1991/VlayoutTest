@@ -1,3 +1,3 @@
 package com.example.vlayouttest.view.bean
 
-data class VLayoutBean(val text: String)
+data class TestBean(var text: String)
